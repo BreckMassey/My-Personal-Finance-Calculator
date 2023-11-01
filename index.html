@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Personal Finance Calculator</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<h1 id="FinanceHeader">
+  <center>My Personal Finance Calculator</center>
+</h1>
+
+<div id="container">
+  <center>
+    <h2>About</h1>
+  </center>
+  <p>
+    &emsp;The My Personal Finance Calculator is a tool designed to educate on personal financial matters, in order to
+    help you make more informed financial decisions. Around 80% of Americans have some sort of debt and the goal of the
+    calculator is to try to eliminate debt by helping Americans plan out their finances for the next year. The
+    calculator considers many components to provide an estimate of how much money you will have by the end of the year.
+    The various expenses can be easily changed to see how each will affect the output (earnings or debt). Most of the
+    expenses come preset with what the average American would pay. Note this is an average, meaning you may have to pay
+    more or less depending on what state you live in and your current circumstances. If you are confused by any of the
+    inputs, simply hover over the text and a pop-up will provide insight into what it is along with a link to an
+    additional source to further educate yourself. By experimenting with the calculator the user can gain a better
+    understanding on how to manage their finances and make more educated decisions on how to spend their money.
+
+  </p>
+
+</div>
+
+<body id="mainBody">
+  <div id="container">
+    <script src=" script.js">  </script>
+    <center>
+      <!--Calculating INcome-->
+
+      <h2>Gross Income</h2>
+      <div class="grid-container">
+        <div class="grid-item">
+          <label for="HourlyWage" class="tooltip"><span class="tooltiptext">How much you earn per
+              hour. The average American makes $18.3. If you earn a salary put your salary into hourly wage and set
+              hours of work a week and weeks of work a year to 1. <a
+                href="https://www.google.com/search?q=average+income+in+the+us&rlz=1C1CHBF_enUS905US905&oq=average+income+in+th&gs_lcrp=EgZjaHJvbWUqDAgAEAAYFBiHAhiABDIMCAAQABgUGIcCGIAEMgwIARAAGBQYhwIYgAQyBwgCEAAYgAQyBwgDEAAYgAQyBggEEEUYOTIHCAUQABiABDIHCAYQABiABDIHCAcQABiABDIHCAgQABiABDIHCAkQABiABKgCALACAA&sourceid=chrome&ie=UTF-8"
+                target="_blank"> The median income in the
+                us is 31,133.</a></span>Hourly
+            wage</label>
+          <br><br>
+          <input type="number" id="HourlyWage" name="HourlyWage" onchange="Calculate(); CalculateTaxes()" value=18.3>
+        </div>
+
+        <div class="grid-item">
+          <label for="HoursOfWork" class="tooltip"><span class="tooltiptext">How many hours you work per week. <a
+                href="https://www.indeed.com/career-advice/career-development/average-hours-worked-per-week#:~:text=According%20to%20the%20United%20States,week%20for%20full%2Dtime%20employees."
+                target="_blank"> The
+                average American works around 34.6 hours per week.</a></span>Hours of work a week:</label><br><br>
+          <input type="number" id="HoursOfWork" name="HoursOfWork" onchange="Calculate(); CalculateTaxes()" value=34.6>
+        </div>
+        <div class="grid-item">
+          <label for="WeeksOfWorkAYear" class="tooltip"><span class="tooltiptext">How many hours you work per year. <a
+                href="https://www.indeed.com/career-advice/career-development/work-weeks-in-year#:~:text=Of%20these%2052%20weeks%2C%20employees,for%20every%20person%20and%20employer."
+                target="_blank"> The
+                average American works 49 weeks a year.</a></span>Weeks of work a year:</label><br><br>
+          <input type="number" id="WeeksOfWorkAYear" name="WeeksOfWorkAYear" onchange="Calculate(); CalculateTaxes()"
+            value=49>
+        </div>
+        <div class="grid-item">
+          <label for="Bonus" class="tooltip"><span class="tooltiptext">Your yearly bonus. <a
+                href="https://www.zippia.com/advice/average-bonus-statistics/#:~:text=33%25%20of%20companies%20in%20the,7%25%20of%20all%20employees"
+                target="_blank">Around 33% of Americans
+                recieve a bonus ranging from 1%-5% of their income. </a></span>Yearly bonus:</label><br><br>
+          <input type="number" id="Bonus" name="Bonus" onchange="Calculate(); CalculateTaxes()" value=0>
+
+        </div>
+        <div class="grid-item">
+          <label for="AdditionalSourcesOfIncome" class="tooltip"><span class="tooltiptext">Any additional income you
+              make (Ex: Stocks, renting a house...)</span>Additional sources of income:</label><br><br>
+          <input type="number" id="AdditionalSourcesOfIncome" name="AdditionalSourcesOfIncome"
+            onchange="Calculate(); CalculateTaxes()" value=0>
+        </div>
+
+      </div>
+
+      <br>
+      <p id="IncomeOutputText">Your gross income will be $31025.82.</p>
+    </center>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <div id="container">
+    <center>
+      <h2>Expenses</h2>
+      <h3>Taxes</h3>
+
+
+      <button id="calculateTaxesButton" onclick="CalculateTaxes(); CalculateTaxes()">Auto calculate federal
+        taxes</button><br></br>
+      <div class="grid-container">
+        <div>
+          <label for="PeopleOnIncome" class="tooltip"><span class="tooltiptext">
+              If you are filing taxes just for yourself input 1. If you are filing your taxes jointly, with a spouse,
+              input 2 and you
+              could get a tax reduction.
+            </span>People on income:</label><br><br>
+          <input type="number" id="PeopleOnIncome" name="PeopleOnIncome" min="1" max="2"
+            onchange="Calculate(); CalculateTaxes()" value=1><br><br>
+        </div>
+        <div>
+          <label for="IncomeTax" class="tooltip"><span class="tooltiptext"> <a
+                href="https://www.taxpolicycenter.org/briefing-book/how-do-federal-income-tax-rates-work#:~:text=The%20rates%20apply%20to%20taxable,is%20taxed%20at%20higher%20rates."
+                target="_blank">Taxes based off
+                of a percentage of your
+                income </a> to help run our government!</span>Income/Federal
+            tax:</label><br><br>
+          <input type="number" id="IncomeTax" name="IncomeTax" onchange="Calculate()" value=0><br><br>
+        </div>
+        <div>
+          <label for="StateTax" class="tooltip"><span class="tooltiptext">The tax you pay to your state to help run your
+              state government! This changes
+              state to state. <a
+                href="https://smartasset.com/taxes/income-taxes#:~:text=state%20tax%20pages.-,Income%20Tax%20Calculators%20by%20State,-Alabama%20Tax%20Calculator"
+                target="_blank">Click
+                here to figure out your state tax.</a></span>State tax:</label><br><br>
+          <input type="number" id="StateTax" name="StateTax" onchange="Calculate()" value=0><br><br>
+        </div>
+
+      </div>
+
+
+
+
+      <!--House Costs money-->
+      <br><br>
+      <h3>Housing</h3>
+
+      <div class="grid-container">
+        <div>
+          <label for="Rent" class="tooltip"><span class="tooltiptext">How much you pay each month for rent or to pay
+              back your mortgage. <a
+                href="https://finance.yahoo.com/news/much-average-american-spends-rent-120010331.html#:~:text=For%20this%20piece%2C%20GOBankingRates%20used,average%20rent%20is%20now%20%241%2C371."
+                target="_blank"> The average American spends $1371 on rent each month.</a></span>Monthly
+            mortgage/rent:</label><br><br>
+          <input type="number" id="Rent" name="Rent" onchange="Calculate()" value=1371><br><br>
+        </div>
+        <div>
+          <label for="PropertyTax" class="tooltip"><span class="tooltiptext">Property tax is based around the value of
+              all the property you own and its location. If you rent you may not have to pay property taxes based on
+              your renters
+              agreement. <a href="https://smartasset.com/taxes/property-taxes" target="_blank">Click
+                here to figure out your property tax.</a> </span>Property tax:</label><br><br>
+          <input type="number" id="PropertyTax" name="PropertyTax" onchange="Calculate()" value=0><br><br>
+        </div>
+        <div>
+          <label for="HouseInsurance" class="tooltip"><span class="tooltiptext">How much you spend on house insurance or
+              renters insurance per month. <a
+                href="https://www.policygenius.com/homeowners-insurance/how-much-does-homeowners-insurance-cost/#:~:text=Here%20is%20the%20average%20cost%20of%20home%20insurance%20per%20month%20and%20annually%20in%20each%20state%2C%20along%20with%20the%20percentage%20difference%20from%20the%20national%20average%20homeowners%20insurance%20cost%20of%20%241%2C754%20per%20year."
+                target="_blank">The average amount spend on house insurance is $146 per
+                month.</a></span>Monthly
+            house insurance</label><br><br>
+          <input type="number" id="HouseInsurance" name="HouseInsurance" onchange="Calculate()" value=146><br><br>
+        </div>
+        <div>
+          <label for="HouseGasBill" class="tooltip"><span class="tooltiptext">How much you spend on gas for your house
+              (not gas for your car). <a
+                href="https://money.usnews.com/money/personal-finance/spending/articles/how-to-estimate-utility-costs#:~:text=The%20organization%20also%20found%20that,and%20%2448.25%20for%20streaming%20services"
+                target="_blank">The average American will spend $63 per month on gas.</a></span>Monthly house gas
+            bill:</label><br><br>
+          <input type="number" id="HouseGasBill" name="HouseGasBill" onchange="Calculate()" value=63><br><br>
+        </div>
+        <div>
+          <label for="HouseElectricBill" class="tooltip"><span class="tooltiptext">How much you spend on electricity per
+              month. <a
+                href="https://money.usnews.com/money/personal-finance/spending/articles/how-to-estimate-utility-costs#:~:text=The%20organization%20also%20found%20that,and%20%2448.25%20for%20streaming%20services"
+                target="_blank">The average American spends $125 per month on electricity.</a></span>Monthly electricity
+            bill:</label><br><br>
+          <input type="number" id="HouseElectricBill" name="HouseElectricBill" onchange="Calculate()" value=125><br><br>
+        </div>
+        <div>
+          <label for="HouseWaterBill" class="tooltip"><span class="tooltiptext">Your water bill payed every other
+              month. <a
+                href="https://money.usnews.com/money/personal-finance/spending/articles/how-to-estimate-utility-costs#:~:text=The%20organization%20also%20found%20that,and%20%2448.25%20for%20streaming%20services"
+                target="_blank">The average American pays $45 every 2 months.</a></span>Bi-monthly water
+            bill:</label><br><br>
+          <input type="number" id="HouseWaterBill" name="HouseWaterBill" onchange="Calculate()" value=45><br><br>
+        </div>
+        <div>
+          <label for="HouseTrashBill" class="tooltip"><span class="tooltiptext">The amount you pay for trash collectors
+              per month. This may come included in your rent or HOA fees. <a
+                href="https://money.usnews.com/money/personal-finance/spending/articles/how-to-estimate-utility-costs#:~:text=The%20organization%20also%20found%20that,and%20%2448.25%20for%20streaming%20services"
+                target="_blank"> The average American spends $50 per
+                month on trash.</a>
+            </span>Monthly trash bill:</label><br><br>
+          <input type="number" id="HouseTrashBill" name="HouseTrashBill" onchange="Calculate()" value=50><br><br>
+        </div>
+      </div>
+
+      <!--Car Costs money-->
+      <br><br>
+      <h3>Car/Transportation</h3>
+
+
+      <div class="grid-container">
+        <div>
+          <label for="CarMonthlyPayment" class="tooltip"><span class="tooltiptext">How much you spend on transportation
+              per month. This can include monthly payments on a car, or bus/subway pass, or other modes of transport.
+              <a href="https://www.bankrate.com/loans/auto-loans/average-monthly-car-payment/#:~:text=the%20best%20deal.-,Car%20payment%20statistics,The%20average%20monthly%20car%20payment%20for%20used%20cars%20is%20%24528.,-40.72%20percent%20of"
+                target="_blank">The average monthly car payment is $600.</a></span>Transportation monthly
+            payment:</label><br><br>
+          <input type="number" id="CarMonthlyPayment" name="CarMonthlyPayment" onchange="Calculate()" value=600><br><br>
+        </div>
+        <div>
+          <label for="CarMonthlyGasPayment" class="tooltip"><span class="tooltiptext">How much you will spend on gas for
+              your car. The average American will spend around $150 per month on gas.</span>Car monthly gas
+            payment:</label><br><br>
+          <input type="number" id="CarMonthlyGasPayment" name="CarMonthlyGasPayment" onchange="Calculate()"
+            value=150><br><br>
+        </div>
+        <div>
+          <label for="CarMonthlyInsurancePayment" class="tooltip"><span class="tooltiptext">How much you spend on
+              insurance for your car. This will depend on your record and how nice your car is. <a
+                href="https://www.policygenius.com/auto-insurance/how-much-is-car-insurance/#:~:text=The%20average%20cost%20of%20car%20insurance%20is%20%241%2C638%20per%20year%2C%20but%20we%20found%20that%20the%20cost%20of%20car%20insurance%20in%20the%20most%20and%20least%20expensive%20states%20is%20separated%20by%20%241%2C786%20per%20year."
+                target="_blank">The average American
+                will spend $136 per month on car insurance.</a></span>Car monthly insurance payment:</label><br><br>
+          <input type="number" id="CarMonthlyInsurancePayment" name="CarMonthlyInsurancePayment" onchange="Calculate()"
+            value=136><br><br>
+        </div>
+      </div>
+
+      <!--Phone/Internet Costs money-->
+      <br><br>
+      <h3>Phone/Internet</h3>
+
+      <div class="grid-container">
+        <div>
+          <label for="phoneMonthlyPayment" class="tooltip"><span class="tooltiptext">How much you will spend on cell
+              service per month. <a
+                href="https://www.allconnect.com/blog/average-cost-of-cellphone-plan#:~:text=According%20to%20JD%20Power%2C%20as%20reported%20by%20CNBC%20in%20June%202023%2C%20the%20average%20monthly%20cost%20of%20a%20cellphone%20plan%20is%20%24144.%20At%20over%20%241%2C700%20a%20year%2C%20it%E2%80%99s%20not%20an%20insignificant%20cost.%20It%20pays%20to%20look%20for%20deals%2C%20promotions%2C%20discounts%20and%20bundle%20savings%20to%20trim%20that%20cost."
+                target="_blank">The average American pays $144 per month for cell service but this is a plan that
+                includes getting a new phone.</a></span>Phone monthly payment:</label><br><br>
+          <input type="number" id="phoneMonthlyPayment" name="phoneMonthlyPayment" onchange="Calculate()"
+            value=144><br><br>
+        </div>
+        <div>
+          <label for="internetMonthlyPayment" class="tooltip"><span class="tooltiptext">How much you spend on internet
+              monthly. <a
+                href="https://money.usnews.com/money/personal-finance/spending/articles/how-to-estimate-utility-costs#:~:text=The%20organization%20also%20found%20that,and%20%2448.25%20for%20streaming%20services"
+                target="_blank">The average American will pay $59.99 per month on Internet.</a></span>Internet monthly
+            payment:</label><br><br>
+          <input type="number" id="internetMonthlyPayment" name="internetMonthlyPayment" onchange="Calculate()"
+            value=59.99><br><br>
+        </div>
+      </div>
+
+
+
+      <!--Entertainment-->
+      <br><br>
+      <h3>Entertainment</h3>
+
+      <div class="grid-container">
+        <div>
+          <label for="tvMonthlyPayment" class="tooltip"><span class="tooltiptext">How much you pay for tv subscriptions
+              (Ex: Disney+, Hulu, Netflix...) per month. <a
+                href="https://money.usnews.com/money/personal-finance/spending/articles/how-to-estimate-utility-costs#:~:text=The%20organization%20also%20found%20that,and%20%2448.25%20for%20streaming%20services"
+                target="_blank">The average American pays $48.25 per month for tv
+                subscriptions. </a></span>TV subscriptions monthly payment:</label><br><br>
+          <input type="number" id="tvMonthlyPayment" name="tvMonthlyPayment" onchange="Calculate()" value=48.25><br><br>
+        </div>
+        <div>
+          <!--Other subscriptions like to magazines or xbox live-->
+          <label for="otherMonthlySubscriptionsPayment" class="tooltip"><span class="tooltiptext">How much you pay on
+              other monthly subscriptions such as spotify.</span>Other subscriptions monthly payment:</label><br><br>
+          <input type="number" id="otherMonthlySubscriptionsPayment" name="otherMonthlySubscriptionsPayment"
+            onchange="Calculate()" value=0><br><br>
+        </div>
+        <div>
+          <label for="party/Present" class="tooltip"><span class="tooltiptext">How much you spend on parties or getting
+              presents for friends/family</span>Money spent on parties/presents:</label><br><br>
+          <input type="number" id="party/Present" name="party/Present" onchange="Calculate()" value=0><br><br>
+        </div>
+      </div>
+
+
+
+
+      <!--Upkeep-->
+      <br><br>
+      <h3>Personal upkeep</h3>
+      <div class="grid-container">
+        <div>
+          <label for="FoodMonthly" class="tooltip"><span class="tooltiptext">How much you spend on food monthly. <a
+                href="https://www.zippia.com/advice/average-cost-of-groceries-by-state/" target="_blank">The
+                average American will spend around $350 but this can vary with how much you eat and what you
+                eat.</a></span>Amount spent of food per month:</label><br><br>
+          <input type="number" id="FoodMonthly" name="FoodMonthly" onchange="Calculate()" value=350><br><br>
+        </div>
+        <div>
+          <label for="gymSpaMonthly" class="tooltip"><span class="tooltiptext">How much you spend on a gym/spa
+              membership per month. The average American will spend $55 per month on a gym membership.</span>Gym/Spa
+            monthly membership:</label><br><br>
+          <input type="number" id="gymSpaMonthly" name="gymSpaMonthly" onchange="Calculate()" value=55><br><br>
+        </div>
+        <div>
+          <label for="clothingYearly" class="tooltip"><span class="tooltiptext">How much you spend on clothing per year.
+              <a href="https://www.valuepenguin.com/average-household-budget#:~:text=How%20much%20do%20clothes%20cost,out%20to%20%241%2C434%20per%20year."
+                target="_blank">The average American will spend around $1434 per year on clothing.</a> Women
+              typically spend a lot more than
+              men.</span> Amount spent of clothes per year:</label><br><br>
+          <input type="number" id="clothingYearly" name="clothingYearly" onchange="Calculate()" value=1434><br><br>
+        </div>
+      </div>
+
+      <!--Upkeep-->
+      <br><br>
+      <h3>Health insurances</h3>
+      <div class="grid-container">
+        <div>
+          <label for="HealthInsuranceMonthly" class="tooltip"><span class="tooltiptext">How much you will spend on
+              health insurance. <a
+                href="https://www.healthmarkets.com/resources/health-insurance/health-insurance-cost-per-month/#:~:text=United%20States-,%24452,-%24438"
+                target="_blank">The average American will spend about $450 on health
+                insurance per month.</a></span>Monthly
+            health insurance:</label><br><br>
+          <input type="number" id="HealthInsuranceMonthly" name="HealthInsuranceMonthly" onchange="Calculate()"
+            value=450><br><br>
+        </div>
+        <div>
+          <label for="DentalInsuranceMonthly" class="tooltip"><span class="tooltiptext">How much you will spend on
+              dental insurance. Most health insurance plans don't cover dental so you will need an addition
+              insurance. <a
+                href="https://www.humana.com/dental-insurance/dental-resources/how-much-is-dental-insurance#:~:text=Monthly%20premiums,per%20month%20for%20a%20family"
+                target="_blank">The average American will spend $35 on dental
+                insurance.</a></span>Monthly dental
+            insurance:</label><br><br>
+          <input type="number" id="DentalInsuranceMonthly" name="DentalInsuranceMonthly" onchange="Calculate()"
+            value=35><br><br>
+        </div>
+        <div>
+          <label for="EyeInsuranceMonthly" class="tooltip"><span class="tooltiptext">How much you will spend on
+              eye insurance. Most health insurance plans don't cover eye so you will need an addition
+              insurance. <a
+                href="https://www.forbes.com/advisor/health-insurance/is-vision-insurance-worth-it/#:~:text=How%20much%20is%20vision%20insurance,to%20have%20bare%2Dbones%20coverage"
+                target="_blank"> The average American will spend $20 on eye
+                insurance.</a></span>Monthly eye
+            insurance:</label><br><br>
+          <input type="number" id="EyeInsuranceMonthly" name="EyeInsuranceMonthly" onchange="Calculate()"
+            value=20><br><br>
+        </div>
+        <div>
+          <label for="LifeInsuranceMonthly" class="tooltip"><span class="tooltiptext">How much you spend on life
+              insurance. You should only need life insurance if you are in a relationship or have someone relying on
+              you. <a href="https://www.businessinsider.com/personal-finance/average-life-insurance-rates"
+                target="_blank">The average American will pay $50 per month.</a></span>Monthly life
+            insurance:</label><br><br>
+          <input type="number" id="LifeInsuranceMonthly" name="LifeInsuranceMonthly" onchange="Calculate()"
+            value=50><br><br>
+        </div>
+      </div>
+
+      <br><br>
+      <h3>Child/Pet</h3>
+      <label for="ChildCareMonthly" class="tooltip"><span class="tooltiptext">How much you will pay monthly to take care
+          of your child. This could be day care or a nanny ect. <a
+            href="https://www.bankrate.com/finance/credit-cards/average-cost-of-childcare/#cost" target="_blank">This
+            varies vastly between states and the average
+            monthly cost of child care is $226.</a></span>Monthly child care cost:</label><br><br>
+      <input type="number" id="ChildCareMonthly" name="ChildCareMonthly" onchange="Calculate()" value=226><br><br>
+      <label for="ChildCostMonthly" class="tooltip"><span class="tooltiptext">How much it costs to have a child per
+          month. This includes buy toys food and other items to take care of your child per month. <a
+            href="https://www.getearlybird.io/blog/how-much-does-it-cost-to-raise-a-child#:~:text=How%20much%20does%20raising%20a,or%20approximately%20%241%2C334%20per%20month."
+            target="_blank">The average cost of a
+            child per month is $1300.</a></span>Monthly cost of child:</label><br><br>
+      <input type="number" id="ChildCostMonthly" name="ChildCostMonthly" onchange="Calculate()" value=1300><br><br>
+      <label for="PetCareMonthly" class="tooltip"><span class="tooltiptext">How much it costs to have a pet per month.
+          This can include food toys and other care products for your pet. <a
+            href="https://www.ovrs.com/blog/pet-care-expenses/#:~:text=Monthly%20Food%20and%20Treats,about%20%2410%2D50%20per%20month"
+            target="_blank">The average cost
+            of a pet per month is
+            $50.</a></span>Monthly cost of a pet:</label><br><br>
+      <input type="number" id="PetCareMonthly" name="PetCareMonthly" onchange="Calculate()" value=50><br><br>
+      <label for="PetInsuranceMonthly" class="tooltip"><span class="tooltiptext">How much it costs per month for pet
+          insurance. Different animals will cost more or less. <a
+            href="https://www.pawlicy.com/blog/pet-insurance-cost/" target="_blank"> For example a dog will typically
+            cost around $50 while a
+            cat will be $30.</a></span>Monthly pet insurance:</label><br><br>
+      <input type="number" id="PetInsuranceMonthly" name="PetInsuranceMonthly" onchange="Calculate()" value=50><br><br>
+
+
+
+      <br><br>
+      <h3>Education</h3>
+      <label for="Tuition" class="tooltip"><span class="tooltiptext">How much you will spend on tuition for school for
+          the next year.</span>Yearly tuition:</label><br><br>
+      <input type="number" id="Tuition" name="Tuition" onchange="Calculate()" value=0><br><br>
+      <label for="MonthlyStudenLoans" class="tooltip"><span class="tooltiptext">How much you will pay per month if you
+          are paying back student loans. <a
+            href="https://money.usnews.com/loans/student-loans/articles/average-student-loan-payment" target="_blank">
+            The typical rate is around $250 per
+            month.</a></span>Monthly student
+        loans:</label><br><br>
+      <input type="number" id="MonthlyStudenLoans" name="MonthlyStudenLoans" onchange="Calculate()" value=250><br><br>
+
+
+      <br><br>
+      <h3>Other</h3>
+      <label for="RetirementCollegeSavings" class="tooltip"><span class="tooltiptext">How much you will put into
+          retirement savings and or college savings. <a
+            href="https://www.nerdwallet.com/article/investing/how-much-to-save-for-retirement#:~:text=There%20is%20a%20general%20rule,of%20your%20pre%2Dtax%20income"
+            target="_blank"> It is recommended to put 10%-15% of
+            your income before taxes into
+            your retirement savings per
+            year.</a> </span>Yearly retirement/college savings:</label><br><br>
+      <input type="number" id="RetirementCollegeSavings" name="RetirementCollegeSavings" onchange="Calculate()"
+        value=0><br><br>
+      <label for="CreditCardDebt" class="tooltip"><span class="tooltiptext">How much you need to pay back from your
+          credit card spending per month. <a
+            href="https://finance.yahoo.com/news/jaw-dropping-stats-state-credit-130022967.html?guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAADHa2w1jGjN0GhRZ1B8NL49v4JFhzZL-SfG_j5AJktL5eZgaKBbfkp9mlZ5SPa4kcZ22R5cGw_o7_pU9iOXEwt6YO8tCBEQ1YBbvDuUkKmPEHc0Vq5ft7YumwuNZ2jDft02eLhF8tYqa5142aWceu4Ytcn4PLFK1ytzD4kXwRUz1#:~:text=The%20Average%20American%20Spends%20%241%2C506,more%20money%20than%20they%20earn"
+            target="_blank">The average
+            American will spend $1500 per month on their credit card.</a>You should always pay off any credit card
+          expenses because <a
+            href="https://www.nerdwallet.com/article/credit-cards/credit-card-debt-bad-debt#:~:text=The%20bottom%20line%3A%20Credit%20card,balance%20in%20full%20each%20month."
+            target="_blank">credit card debt can be very bad.</a></span>Monthly credit card
+        expense:</label><br><br>
+      <input type="number" id="CreditCardDebt" name="CreditCardDebt" onchange="Calculate()" value=1500><br><br>
+      <label for="EmergencyFunds" class="tooltip"><span class="tooltiptext">How much you will put into your emergency
+          fund each year. You should have enough in your emergency fund to help you last without a job for a few
+          months.</span>Yearly emergency funds:</label><br><br>
+      <input type="number" id="EmergencyFunds" name="EmergencyFunds" onchange="Calculate()" value=0><br><br>
+      <label for="LargePurchases" class="tooltip"><span class="tooltiptext">How much you will spend on any large
+          purchases such as a vacation, new car, new computer/phone/tv ect.</span>Yearly large
+        purchases:</label><br><br>
+      <input type="number" id="LargePurchases" name="LargePurchases" onchange="Calculate()" value=0><br><br>
+
+    </center>
+  </div>
+
+  <div id="container">
+    <center>
+      <h2>Net Income</h2>
+
+
+      <button id="calculateButton" onclick="Calculate()">calculate</button>
+
+      <p id="outputText">Press Calculate</p>
+
+    </center>
+  </div>
+
+
+  <div id="container">
+    <center>
+      <p2>Submission for the Congressional App Challenge made by Breck Massey, Brady Williams, and Nic Prete
+      </p2>
+    </center>
+  </div>
+
+
+  <br>
+  <br>
+
+</body>
+
+
+</html>

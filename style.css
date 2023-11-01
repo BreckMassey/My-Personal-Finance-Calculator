@@ -1,0 +1,215 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+button {
+  font-family: 'verdana';
+  font-size: 20px;
+  color: #000000;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 7px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 26px 0 rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  font-family: 'verdana';
+  font-size: 20px;
+  color: #000000;
+  background-color: rgba(255, 255, 255, 0.35);
+  border-radius: 7px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 26px 0 rgba(0, 0, 0, 0.2);
+}
+
+label {
+
+  font-size: 20px;
+  font-family: 'verdana';
+  color: #000000;
+}
+
+h2 {
+
+  font-size: 30px;
+  font-family: 'verdana';
+  color: #000000;
+}
+
+h3 {
+
+  font-size: 20px;
+  font-family: 'verdana';
+  color: #000000;
+}
+
+p {
+  font-size: 15px;
+  font-family: 'verdana';
+  color: #000000;
+  padding: 0px 20px;
+}
+
+p2 {
+  font-size: 10px;
+  font-family: 'verdana';
+  color: #000000;
+}
+
+body {
+  /* background-image: linear-gradient(to bottom, rgb(226, 228, 204, 0.75), rgb(196, 210, 193, 0.75), rgb(129, 150, 144, 0.75), rgb(70, 99, 105, 0.75), rgb(30, 31, 44, 0.75))*/
+  /*, url("money.jpeg");*/
+  /* background-image: linear-gradient(to bottom, rgb(0, 0, 50, 0.9), rgb(0, 0, 0, 0.9)), url("money.jpeg");*/
+  background-image: linear-gradient(to bottom, rgb(226, 228, 204, 0.75), rgb(196, 210, 193, 0.75), rgb(129, 150, 144, 0.75), rgb(70, 99, 105, 0.75), rgb(30, 31, 44, 0.75)), url("money.jpeg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  /*background-image: url("money.jpeg");*/
+}
+
+
+#container {
+  background: rgb(196, 210, 193, 0.7);
+  /*background: rgb(194, 194, 194, 0.7);*/
+  backdrop-filter: blur(5px);
+  margin: 40px 10%;
+  padding: 5px 5px;
+  border-radius: 20px;
+
+  box-shadow: 0 3px 26px 0 rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+#FinanceHeader {
+  font-family: 'verdana';
+  background: rgb(196, 210, 193, 0.7);
+  /*background: rgb(194, 194, 194, 0.7);*/
+  backdrop-filter: blur(5px);
+  margin: 40px 10%;
+  padding: 5px 5px;
+  border-radius: 20px;
+  box-shadow: 0 3px 26px 0 rgba(0, 0, 0, 0.3);
+
+  /*background-color: rgb(196, 210, 193);*/
+
+  /*background-image: linear-gradient(to right, rgb(196, 210, 193), rgb(129, 150, 144));*/
+}
+
+input {
+  font-family: 'verdana';
+  font-size: 20px;
+  color: #000000;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 7px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 80%;
+  box-shadow: 0 3px 26px 0 rgba(0, 0, 0, 0.1);
+
+
+}
+
+input:hover {
+  font-family: 'verdana';
+  font-size: 20px;
+  color: #000000;
+  background-color: rgba(50, 50, 50, 0.1);
+  border-radius: 7px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 80%;
+  box-shadow: 0 3px 26px 0 rgba(0, 0, 0, 0.15);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+#outputText {
+  font-size: 20px;
+  font-family: 'verdana';
+  color: #000000;
+  /*background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
+  */
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+}
+
+#IncomeOutputText {
+  font-size: 20px;
+  font-family: 'verdana';
+  color: #000000;
+  /*background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
+  */
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+}
+
+.grid-container>div {
+
+  padding: 1em;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 10px;
+  grid-auto-rows: 100px;
+}
+
+
+
+
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 2px dotted black;
+
+  /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  background-color: rgb(226, 228, 204);
+  color: black;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  font-size: 15px;
+
+  box-shadow: 0 3px 26px 0 rgba(0, 0, 0, 0.2);
+}
+
+.tooltip .tooltiptext {
+  width: 100%;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -50%;
+  /* Use half of the width (120/2 = 60), to center the tooltip */
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+a {
+
+  font-family: 'verdana';
+  color: #000000;
+
+}
