@@ -17,6 +17,8 @@ function Calculate() {
   totalMoneyMade -= document.getElementById("HouseElectricBill").value * 12;
   totalMoneyMade -= document.getElementById("HouseWaterBill").value * 6;
   totalMoneyMade -= document.getElementById("HouseTrashBill").value * 12;
+  totalMoneyMade -= document.getElementById("IncomeTax").value;
+  totalMoneyMade -= document.getElementById("StateTax").value;
 
 
   totalMoneyMade -= document.getElementById("CarMonthlyPayment").value * 12;
